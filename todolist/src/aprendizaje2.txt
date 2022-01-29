@@ -1,0 +1,27 @@
+Html
+====
+v-model="task"
+<button @click="addTaskMethod">Agregar a lista</button>
+<li v-for="(task, i) in tasks" :key="i">
+ {{ getTaskMethod(i+1, task) }}
+
+ Script
+ ======
+ export default
+
+data() {
+return {
+task: "",
+tasks: [],
+};
+}
+
+methods: {
+getTaskMethod(index, task) {
+return `${index}: ${task}`;
+},
+addTaskMethod() {
+let { task } = this;
+this.tasks.push(task);
+},
+}
